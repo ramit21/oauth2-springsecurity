@@ -27,7 +27,6 @@ Save the client, go to credentials tab for the client, and get the client secret
 ## Things to notice in code
 1. Spring boot project pom has a dependency for spring-boot-starter-oauth2-resource-server.
 2. Fetch all roles present in the JWT token's clains section:
-
 https://github.com/ramit21/oauth2-springsecurity/blob/136e478af6a43aa0e63ae6e35a90185d6ade6714/src/main/java/com/eazybytes/config/KeycloakRoleConverter.java#L17
 
 3. 
