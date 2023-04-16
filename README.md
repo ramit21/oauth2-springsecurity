@@ -6,6 +6,8 @@ We use KeyCloak to setup our Authorization server.
 
 Instead of building OAuth servers from scratch, companies prefer to use readymade options like Keycloak, Okta, Cognito etc.
 
+Keycloak also supports Kerberso providers, Ldap providers, as well as social federation identity providers.
+
 ## Project setup
 Download Keycloak from https://www.keycloak.org/downloads and see instructions to 
 start the server using steps given for bare metal setup on our laptop: https://www.keycloak.org/getting-started/getting-started-zip
