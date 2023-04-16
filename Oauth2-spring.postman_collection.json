@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "9eb48ff2-6028-4897-912c-9e1ce055b3f2",
+		"name": "Oauth2-spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4405960"
+	},
+	"item": [
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/realms/eazybankdev/protocol/openid-connect/token?client_id=eazybankapi&client_secret=gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is&scope=openid email profile address&grant_type=client_credentials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"realms",
+						"eazybankdev",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "app call with token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxc24zRVFCSnN1eUNmcTRjZFRnZlJjcXFjOW55U1F3Q2p6Q2hoQzhvUGJrIn0.eyJleHAiOjE2ODE2NTYxNzQsImlhdCI6MTY4MTY1NTg3NCwianRpIjoiODk0MDYxNzgtNjE1Yy00ZjY3LTg5NDUtZDYyZTMxNWEwZjk5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL3JlYWxtcy9lYXp5YmFua2RldiIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiJhMTg5ODQ0OC1hOWRmLTQ4YmItYWI2My03ODNkMjljOTliOWUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJlYXp5YmFua2FwaSIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiLyoiXSwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iLCJkZWZhdWx0LXJvbGVzLWVhenliYW5rZGV2Il19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiZWF6eWJhbmthcGkiOnsicm9sZXMiOlsiREVWIiwiQURNSU4iXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgYWRkcmVzcyBlbWFpbCIsImFkZHJlc3MiOnt9LCJjbGllbnRIb3N0IjoiMTI3LjAuMC4xIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRJZCI6ImVhenliYW5rYXBpIiwicHJlZmVycmVkX3VzZXJuYW1lIjoic2VydmljZS1hY2NvdW50LWVhenliYW5rYXBpIiwiY2xpZW50QWRkcmVzcyI6IjEyNy4wLjAuMSJ9.f73oZCsbTKLLsQ6uxBTR36GxA3er8DIFir-7rUINAkEeDs75QPbY4TfOAHz9XaDU0C5Hmm4Xu_M9kjQTQklpyRwtbXpCyY-MSSXmWUfRqnvUHGFiiwbcivXM1a1Tdp_iYDMQ7sfEKlFPeBZf83NSeBmiIb-vzlfvNkAG7S7ooWF58tJuCZmQOfJ47fa3dy8KbmXmcm4EwnD6GhLga9saKfpFobL20_eIXFDFzCz1oxWllQGCzVCPNu6apqxXnDuuKakKf1f_WILvhwsNrqKFCjTaW3FPaHXmyFgqZB2K4YwzXQtggJVnTyLdpzXi_p_Z7MVTQ7cy1e_swaQ1z_p83Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/myCards?email=happy@example.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myCards"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "happy@example.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
