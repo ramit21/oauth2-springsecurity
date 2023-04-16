@@ -64,4 +64,19 @@ This path is the one that appears as jwks_uri on server config url as mentioned 
 4. In spring sec config, we can check for certain roles for a particular api. If the jwt token does not have these roles (when roles were not configured for the client used to get the token), then access to this endpoint would be denied.
 https://github.com/ramit21/oauth2-springsecurity/blob/c848c3033430c0bf37baa043a754abf79fb81771/src/main/java/com/eazybytes/config/ProjectSecurityConfig.java#L49
 
-5. 
+5. Keycloak dependency in the angular app. This library contains all code required for PKCE code challenge handling, redirecting user to auth server login page etc.:
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/package.json#L26
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/app.module.ts#L17
+Initialize Keycloak with PKCE params:
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/app.module.ts#L62
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/app.module.ts#L19
+KeyCloak login action:
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/components/header/header.component.ts#L33
+
+6. All routes are protected using a component that extends KeyCloakAuthGaurd:
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/app-routing.module.ts#L23
+
+The AuthKeyClockGaurd component has logic to check the this.authenticated variable which is set by the library on successful authentication:
+https://github.com/ramit21/oauth2-springsecurity/blob/7b9d6caecfd6c830ca62b9faa6cf478cfa069e90/bank-app-ui/src/app/routeguards/auth.route.ts#L29
+
+
