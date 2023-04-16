@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Get Token",
+			"name": "Get Token backchannel using client_secret",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -73,9 +73,152 @@
 			"response": []
 		},
 		{
-			"name": "app call with token",
+			"name": "Get Token using Auth code",
 			"request": {
 				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/realms/eazybankdev/protocol/openid-connect/token?client_id=eazybankapi&client_secret=gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is&scope=openid email profile address&grant_type=client_credentials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"realms",
+						"eazybankdev",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Auth Code",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "eazybankclient",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:7080/sample",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "abcdefg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/realms/eazybankdev/protocol/openid-connect/auth?client_id=eazybankapi&client_secret=gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is&scope=openid email profile address&grant_type=client_credentials",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"realms",
+						"eazybankdev",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "eazybankapi"
+						},
+						{
+							"key": "client_secret",
+							"value": "gw9K4zC7bP9xjYh9Jyugqerf9qqzN1is"
+						},
+						{
+							"key": "scope",
+							"value": "openid email profile address"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "app call with token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
